@@ -1,4 +1,4 @@
 from db import *
 
-
-write_price("BTC")
+currency_names = ["BTC", "ETH"]
+write_price(currency_names)
