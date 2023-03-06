@@ -14,8 +14,8 @@ def write_price(currency_name):
     db = psycopg2.connect(host=db_secrets["host"], dbname=db_secrets["dbname"],
                           user=db_secrets["user"], port=db_secrets["port"])
 
-    # while True:
-    for _ in range(100):
+    while True:
+        print('writing...')
         info = price("BTC")
         db.cursor().execute(
             f"""
@@ -29,6 +29,6 @@ def write_price(currency_name):
             """
         )
         db.commit()
-        time.sleep(1)
+        time.sleep(60)
 
     db.close()
